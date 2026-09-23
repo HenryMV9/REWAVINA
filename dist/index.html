@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="REWAVINA - Resettlement For Women Affected by Violence in Africa."
+    >
+
+    <title>
+        REWAVINA | Resettlement For Women Affected by Violence in Africa
+    </title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- Main CSS -->
+  <link rel="stylesheet" crossorigin href="./assets/style-B7EpsCVM.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         NAVIGATION
+    ====================================================== -->
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <!-- Logo + Full Organization Name -->
+            <a href="#home" class="brand">
+
+                <div class="brand-logo">
+                    <img
+                        src="./assets/LOGO-v7lwQXeE.png"
+                        alt="REWAVINA logo"
+                    >
+                </div>
+
+                <div class="brand-text">
+
+                    <span class="brand-acronym">
+                        REWAVINA
+                    </span>
+
+                    <span class="brand-full-name">
+                        Resettlement For Women Affected
+                        by Violence in Africa
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav" aria-label="Main navigation">
+
+                <a href="about.html">About</a>
+
+                <a href="contact.html">Contact</a>
+
+                <a href="#donate" class="nav-donate">
+                    Donate
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </nav>
+
+
+            <!-- Mobile Menu Button -->
+            <button
+                class="mobile-menu-toggle"
+                id="mobileMenuToggle"
+                aria-label="Open menu"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+
+
+
+
+            
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MOBILE NAVIGATION
+    ====================================================== -->
+
+    <div class="mobile-menu" id="mobileMenu">
+
+        <a href="about.html">About</a>
+
+        <a href="contact.html">Contact</a>
+
+        <a href="#donate" class="mobile-donate">
+            Donate
+            <i class="fa-solid fa-heart"></i>
+        </a>
+
+    </div>
+
+
+    <main>
+
+        <!-- =================================================
+             SECTION 1 — HERO
+        ================================================== -->
+
+        <section class="hero" id="home">
+
+            <!-- Background Slideshow -->
+            <div class="hero-slideshow">
+
+                <!-- Slide 1 — MainBG starts first -->
+                <div
+                    class="hero-slide active"
+                    style="background-image: url('./assets/MainBG-BR6vCQe4.jpeg');"
+                ></div>
+
+                <!-- Slide 2 -->
+                <div
+                    class="hero-slide"
+                    style="background-image: url('./assets/Background1-C1JTHmGf.jpeg');"
+                ></div>
+
+                <!-- Slide 3 -->
+                <div
+                    class="hero-slide"
+                    style="background-image: url('./assets/Background3-Bx7WolH1.jpeg');"
+                ></div>
+
+            </div>
+
+
+            <!-- Hero Overlay -->
+            <div class="hero-overlay"></div>
+
+
+            <!-- Hero Decorative Glow -->
+            <div class="hero-glow"></div>
+
+
+            <!-- Hero Content -->
+            <div class="hero-content container">
+
+                <div class="hero-label">
+                    Empowering Women. Restoring Dignity.
+                </div>
+
+
+                <h1>
+                    Restoring Hope,
+                    <br>
+                    <span>Rebuilding Lives.</span>
+                </h1>
+
+
+                <p>
+                    Resettlement For Women Affected by Violence in Africa.
+                    We work to help women rebuild their lives, restore
+                    their dignity, and become active contributors to their
+                    communities.
+                </p>
+
+
+                <div class="hero-actions">
+
+                    <a href="#about" class="btn btn-primary">
+                        Learn More
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                    <a href="#donate" class="btn btn-outline">
+                        Support REWAVINA
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Slideshow Controls -->
+            <div class="hero-controls">
+
+                <button
+                    id="prevSlide"
+                    class="slide-arrow"
+                    aria-label="Previous image"
+                >
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+
+
+                <div class="slide-dots">
+
+                    <button
+                        class="slide-dot active"
+                        data-slide="0"
+                        aria-label="Go to slide 1"
+                    ></button>
+
+                    <button
+                        class="slide-dot"
+                        data-slide="1"
+                        aria-label="Go to slide 2"
+                    ></button>
+
+                    <button
+                        class="slide-dot"
+                        data-slide="2"
+                        aria-label="Go to slide 3"
+                    ></button>
+
+                </div>
+
+
+                <button
+                    id="nextSlide"
+                    class="slide-arrow"
+                    aria-label="Next image"
+                >
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </div>
+
+
+            <!-- Scroll Indicator -->
+            <a href="#about" class="scroll-indicator">
+
+                <span>Scroll to explore</span>
+
+                <span class="scroll-line"></span>
+
+            </a>
+
+        </section>
+
+
+        <!-- =================================================
+             SECTION 2 — MISSION
+        ================================================== -->
+
+        <section class="mission" id="about">
+
+            <div class="container mission-container">
+
+                <div class="section-eyebrow">
+                    OUR MISSION
+                </div>
+
+
+                <div class="mission-accent"></div>
+
+
+                <h2>
+                    Building pathways toward
+                    <span>healing, dignity and hope.</span>
+                </h2>
+
+
+                <p class="mission-text">
+                    REWAVINA provides comprehensive resettlement services
+                    and support to women affected by violence across Africa,
+                    helping them rebuild their lives, restore their dignity,
+                    and become active contributors to their communities,
+                    while advocating for a violence-free continent.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SECTION 3 — GALLERY / OUR WORK
+        ================================================== -->
+
+        <section class="gallery-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="section-eyebrow">
+                        OUR WORK
+                    </div>
+
+                    <h2>
+                        Creating impact
+                        <span>through action.</span>
+                    </h2>
+
+                    <p>
+                        Our work is rooted in community, compassion and
+                        practical support for women affected by violence.
+                    </p>
+
+                </div>
+
+
+                <div class="gallery-grid">
+
+                    <!-- Gallery Item 1 -->
+                    <article class="gallery-item gallery-large">
+
+                        <img
+                            src="./assets/Gallery1-BCAV_3eS.jpeg"
+                            alt="REWAVINA community activity"
+                            loading="lazy"
+                        >
+
+                        <div class="gallery-overlay">
+
+                            <span>Community</span>
+
+                            <h3>
+                                Standing together
+                                with women and families
+                            </h3>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Gallery Item 2 -->
+                    <article class="gallery-item">
+
+                        <img
+                            src="./assets/Background1-C1JTHmGf.jpeg"
+                            alt="REWAVINA community gardening activity"
+                            loading="lazy"
+                        >
+
+                        <div class="gallery-overlay">
+
+                            <span>Empowerment</span>
+
+                            <h3>
+                                Growing opportunity
+                            </h3>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Gallery Item 3 -->
+                    <article class="gallery-item">
+
+                        <img
+                            src="./assets/Background3-Bx7WolH1.jpeg"
+                            alt="REWAVINA community outreach"
+                            loading="lazy"
+                        >
+
+                        <div class="gallery-overlay">
+
+                            <span>Resettlement</span>
+
+                            <h3>
+                                Rebuilding stronger communities
+                            </h3>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Gallery Item 4 -->
+                    <article class="gallery-item">
+
+                        <img
+                            src="./assets/MainBG-BR6vCQe4.jpeg"
+                            alt="REWAVINA field work"
+                            loading="lazy"
+                        >
+
+                        <div class="gallery-overlay">
+
+                            <span>Impact</span>
+
+                            <h3>
+                                Turning support into action
+                            </h3>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SECTION 4 — DONATE
+        ================================================== -->
+
+        <section class="donate-section" id="donate">
+
+            <div class="donate-pattern"></div>
+
+            <div class="container">
+
+                <div class="donate-content">
+
+                    <div class="section-eyebrow light">
+                        SUPPORT OUR MISSION
+                    </div>
+
+
+                    <h2>
+                        Help create a safer,
+                        <span>brighter future.</span>
+                    </h2>
+
+
+                    <p>
+                        Your contribution can help support initiatives
+                        that provide women affected by violence with
+                        opportunities to rebuild their lives, regain
+                        stability and move forward with dignity.
+                    </p>
+
+
+                    <!-- Suggested Donation Amounts -->
+  <!-- =================================================
+     DONATION AMOUNT OPTIONS
+================================================== -->
+
+                <div class="donation-options">
+
+                    <button
+                        type="button"
+                        class="amount-btn active"
+                        data-amount="5000"
+                    >
+                        ₦5,000
+                    </button>
+
+                    <button
+                        type="button"
+                        class="amount-btn"
+                        data-amount="10000"
+                    >
+                        ₦10,000
+                    </button>
+
+                    <button
+                        type="button"
+                        class="amount-btn"
+                        data-amount="25000"
+                    >
+                        ₦25,000
+                    </button>
+
+                    <button
+                        type="button"
+                        class="amount-btn"
+                        data-amount="50000"
+                    >
+                        ₦50,000
+                    </button>
+
+                    <button
+                        type="button"
+                        class="amount-btn"
+                        data-amount="100000"
+                    >
+                        ₦100,000
+                    </button>
+
+                </div>
+
+
+                <!-- =================================================
+                    CUSTOM DONATION AMOUNT
+                ================================================== -->
+
+                <div class="custom-donation">
+
+                    <label for="customAmount">
+                        Or enter your own amount
+                    </label>
+
+                    <div class="custom-input-wrapper">
+
+                        <span class="currency-symbol">
+                            ₦
+                        </span>
+
+                        <input
+                            type="number"
+                            id="customAmount"
+                            name="customAmount"
+                            placeholder="Enter amount"
+                            min="100"
+                            step="100"
+                            inputmode="numeric"
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+                    <small>
+                        Minimum donation: ₦100
+                    </small>
+
+                </div>
+
+
+                <!-- =================================================
+                    SELECTED DONATION
+                ================================================== -->
+
+                <div class="selected-amount">
+
+                    Selected donation:
+
+                    <strong id="selectedAmount">
+                        ₦5,000
+                    </strong>
+
+                </div>
+
+                    <!--
+                    =====================================================
+                    PAYSTACK PAYMENT INTEGRATION GOES HERE
+
+                    Later, connect the donate button to Paystack.
+
+                    Example requirements:
+                    1. Add your Paystack PUBLIC KEY.
+                    2. Initialize Paystack Inline JS.
+                    3. Pass the selected donation amount.
+                    4. Add donor email/name fields.
+                    5. Handle successful/failed payment callbacks.
+
+                    IMPORTANT:
+                    Never place a Paystack SECRET KEY in frontend JavaScript.
+                    The SECRET KEY belongs on your secure backend/server.
+                    =====================================================
+                    -->
+
+
+                    <!-- Donate Button -->
+                    <button
+                        class="btn btn-donate"
+                        id="donateButton"
+                    >
+                        Donate Now
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+
+
+                    <small class="donation-note">
+                        Secure online donations will be enabled through
+                        Paystack.
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SECTION 5 — FOOTER / CONTACT
+        ================================================== -->
+
+        <footer class="footer" id="contact">
+
+            <div class="container">
+
+                <div class="footer-grid">
+
+                    <!-- Footer Brand -->
+                    <div class="footer-brand">
+
+                        <div class="footer-logo">
+
+                            <img
+                                src="./assets/LOGO-v7lwQXeE.png"
+                                alt="REWAVINA logo"
+                            >
+
+                            <span>REWAVINA</span>
+
+                        </div>
+
+
+                        <p>
+                            Resettlement For Women Affected by Violence
+                            in Africa.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Footer Links -->
+                    <div class="footer-column">
+
+                        <h4>Navigation</h4>
+
+                        <a href="#about">
+                            About
+                        </a>
+
+                        <a href="#contact">
+                            Contact
+                        </a>
+
+                        <a href="#donate">
+                            Donate
+                        </a>
+
+                    </div>
+
+
+                    <!-- Address -->
+                    <div class="footer-column footer-address">
+
+                        <h4>Our Address</h4>
+
+                        <p>
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            <span>
+                                Suite 12 and 13,<br>
+                                Purple Stone Plaza,<br>
+                                Apo Resettlement,<br>
+                                Abuja, F C T.
+                            </span>
+                        </p>
+
+                    </div>
+
+
+                    <!-- Social Media -->
+                    <div class="footer-column">
+
+                        <h4>Connect With Us</h4>
+
+                        <div class="social-icons">
+
+                            <a
+                                href="#"
+                                aria-label="Facebook"
+                            >
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+
+                            <a
+                                href="#"
+                                aria-label="Instagram"
+                            >
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+
+                            <a
+                                href="#"
+                                aria-label="LinkedIn"
+                            >
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+
+                            <a
+                                href="#"
+                                aria-label="X"
+                            >
+                                <i class="fa-brands fa-x-twitter"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Footer Bottom -->
+                <div class="footer-bottom">
+
+                    <p>
+                        ©
+                        <span id="currentYear"></span>
+                        REWAVINA.
+                        All Rights Reserved.
+                    </p>
+
+                    <p>
+                        Resettlement For Women Affected by Violence in Africa
+                    </p>
+
+                </div>
+
+            </div>
+
+        </footer>
+
+    </main>
+
+
+    <!-- Main JavaScript -->
+    <script src="js/script.js"></script>
+
+</body>
+</html>
