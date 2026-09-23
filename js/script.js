@@ -205,93 +205,276 @@ mobileLinks.forEach((link) => {
 
 
 /* =========================================================
-   DONATION AMOUNT BUTTONS
+   DONATION AMOUNT SELECTION
 ========================================================= */
 
 const amountButtons =
     document.querySelectorAll(".amount-btn");
 
-const selectedAmount =
+const customAmountInput =
+    document.getElementById("customAmount");
+
+const selectedAmountDisplay =
     document.getElementById("selectedAmount");
-
-
-let selectedDonation = 5000;
-
-
-amountButtons.forEach((button) => {
-
-    button.addEventListener("click", () => {
-
-        amountButtons.forEach((item) => {
-            item.classList.remove("active");
-        });
-
-        button.classList.add("active");
-
-
-        selectedDonation =
-            Number(button.dataset.amount);
-
-
-        selectedAmount.textContent =
-            "₦" +
-            selectedDonation.toLocaleString("en-NG");
-
-    });
-
-});
-
-
-
-/* =========================================================
-   PAYSTACK DONATION BUTTON
-========================================================= */
 
 const donateButton =
     document.getElementById("donateButton");
 
 
-donateButton.addEventListener("click", () => {
+const MIN_DONATION = 100;
 
-    /*
-    =========================================================
-    PAYSTACK INTEGRATION
+let selectedDonation = 5000;
 
-    THIS IS WHERE THE PAYSTACK PAYMENT CODE WILL GO.
 
-    Example flow:
+/* ---------------------------------------------------------
+   FORMAT NAIRA
+--------------------------------------------------------- */
 
-    const handler = PaystackPop.setup({
-        key: "YOUR_PAYSTACK_PUBLIC_KEY",
-        email: donorEmail,
-        amount: selectedDonation * 100,
-        currency: "NGN",
+function formatNaira(amount) {
 
-        callback: function(response) {
-            console.log(response);
-        },
+    return "₦" +
+        Number(amount).toLocaleString("en-NG");
 
-        onClose: function() {
-            console.log("Payment window closed");
+}
+
+
+/* ---------------------------------------------------------
+   UPDATE SELECTED AMOUNT DISPLAY
+--------------------------------------------------------- */
+
+function updateSelectedAmount(amount) {
+
+    selectedDonation = Number(amount);
+
+    if (selectedAmountDisplay) {
+
+        selectedAmountDisplay.textContent =
+            formatNaira(selectedDonation);
+
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   PRESET DONATION BUTTONS
+--------------------------------------------------------- */
+
+amountButtons.forEach((button) => {
+
+    button.addEventListener("click", () => {
+
+        /* Remove active state */
+
+        amountButtons.forEach((item) => {
+
+            item.classList.remove("active");
+
+        });
+
+
+        /* Activate selected preset */
+
+        button.classList.add("active");
+
+
+        /* Clear custom amount */
+
+        if (customAmountInput) {
+
+            customAmountInput.value = "";
+
         }
+
+
+        /* Get preset value */
+
+        const amount =
+            Number(button.dataset.amount);
+
+
+        /* Update selected amount */
+
+        updateSelectedAmount(amount);
+
     });
 
-    handler.openIframe();
-
-    IMPORTANT:
-
-    - Use only the PAYSTACK PUBLIC KEY in frontend code.
-    - NEVER put your Paystack SECRET KEY in this file.
-    - The Secret Key belongs on a secure backend/server.
-    =========================================================
-    */
-
-
-    alert(
-        `Thank you for supporting REWAVINA.\n\nSelected donation: ₦${selectedDonation.toLocaleString("en-NG")}\n\nPaystack payment integration will be connected here.`
-    );
-
 });
+
+
+/* ---------------------------------------------------------
+   CUSTOM DONATION INPUT
+--------------------------------------------------------- */
+
+if (customAmountInput) {
+
+    customAmountInput.addEventListener("input", () => {
+
+        const customValue =
+            Number(customAmountInput.value);
+
+
+        /*
+           When the user starts entering a custom amount,
+           remove the active state from the preset buttons.
+        */
+
+        if (customAmountInput.value !== "") {
+
+            amountButtons.forEach((button) => {
+
+                button.classList.remove("active");
+
+            });
+
+        }
+
+
+        /*
+           Only update the selected amount once the
+           custom amount reaches the minimum.
+        */
+
+        if (
+            Number.isFinite(customValue) &&
+            customValue >= MIN_DONATION
+        ) {
+
+            updateSelectedAmount(customValue);
+
+        }
+
+    });
+
+}
+
+
+/* =========================================================
+   DONATE BUTTON
+========================================================= */
+
+if (donateButton) {
+
+    donateButton.addEventListener("click", () => {
+
+        /*
+        -----------------------------------------------------
+        IMPORTANT FIX
+
+        Read the custom amount AGAIN when Donate is clicked.
+
+        This guarantees that a custom value takes priority
+        over the previously selected preset amount.
+        -----------------------------------------------------
+        */
+
+        let donationAmount = selectedDonation;
+
+
+        /* Check custom amount first */
+
+        if (
+            customAmountInput &&
+            customAmountInput.value.trim() !== ""
+        ) {
+
+            const customValue =
+                Number(customAmountInput.value);
+
+
+            /* Validate custom amount */
+
+            if (
+                !Number.isFinite(customValue) ||
+                customValue < MIN_DONATION
+            ) {
+
+                alert(
+                    "Please enter a valid donation amount of at least ₦100."
+                );
+
+                customAmountInput.focus();
+
+                return;
+
+            }
+
+
+            /*
+               CUSTOM AMOUNT IS NOW THE
+               AUTHORITATIVE DONATION AMOUNT
+            */
+
+            donationAmount = customValue;
+
+        }
+
+
+        /* Final validation */
+
+        if (
+            !Number.isFinite(donationAmount) ||
+            donationAmount < MIN_DONATION
+        ) {
+
+            alert(
+                "Please select or enter a valid donation amount."
+            );
+
+            return;
+
+        }
+
+
+        /* Keep the displayed amount accurate */
+
+        updateSelectedAmount(donationAmount);
+
+
+        /*
+        =====================================================
+        PAYSTACK INTEGRATION WILL GO HERE
+
+        When Paystack is connected, use:
+
+            amount: donationAmount * 100
+
+        Example:
+
+        const handler = PaystackPop.setup({
+            key: "YOUR_PAYSTACK_PUBLIC_KEY",
+            email: donorEmail,
+            amount: donationAmount * 100,
+            currency: "NGN",
+
+            callback: function(response) {
+                console.log(response);
+            },
+
+            onClose: function() {
+                console.log("Payment window closed");
+            }
+        });
+
+        handler.openIframe();
+
+        NEVER put your Paystack SECRET KEY in this file.
+        =====================================================
+        */
+
+
+        /* Temporary testing */
+
+        alert(
+            "Donation Amount: " +
+            formatNaira(donationAmount)
+        );
+
+    });
+
+}
+
+
 
 
 
