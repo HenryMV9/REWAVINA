@@ -115,6 +115,8 @@ function resetSlideshow() {
    BUTTON CONTROLS
 --------------------------------------------------------- */
 
+if (nextButton) {
+
 nextButton.addEventListener("click", () => {
 
     nextSlide();
@@ -123,6 +125,10 @@ nextButton.addEventListener("click", () => {
 
 });
 
+}
+
+
+if (prevButton) {
 
 prevButton.addEventListener("click", () => {
 
@@ -131,6 +137,8 @@ prevButton.addEventListener("click", () => {
     resetSlideshow();
 
 });
+
+}
 
 
 /* ---------------------------------------------------------
@@ -167,6 +175,8 @@ const mobileMenu =
     document.getElementById("mobileMenu");
 
 
+if (mobileMenuToggle && mobileMenu) {
+
 mobileMenuToggle.addEventListener("click", () => {
 
     const isOpen =
@@ -186,6 +196,8 @@ mobileMenuToggle.addEventListener("click", () => {
 
 const mobileLinks =
     mobileMenu.querySelectorAll("a");
+
+}
 
 mobileLinks.forEach((link) => {
 
@@ -485,8 +497,12 @@ if (donateButton) {
 const currentYear =
     document.getElementById("currentYear");
 
+if (currentYear) {
+
 currentYear.textContent =
     new Date().getFullYear();
+
+}
 
 
 
